@@ -1,3 +1,4 @@
+# pyrefly: ignore [missing-import]
 from faker import Faker
 
 # Global dictionary to track original-to-fake mappings
