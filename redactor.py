@@ -1,5 +1,6 @@
 # pyrefly: ignore [missing-import]
 import re
+# pyrefly: ignore [missing-import]
 import spacy
 from anonymizer import get_fake_replacement
 
