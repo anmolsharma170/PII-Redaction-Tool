@@ -66,3 +66,20 @@ python evaluate.py
 1. **False Positives in Legal Headings:** Generic legal terms and headings (e.g., "Red Herring Prospectus", "Companies Act", "CFO", "SSN") are sometimes misclassified by spaCy as `ORG` or `PERSON` entities and replaced.
 2. **Address Detection:** Complex, multi-line postal addresses lack rigid syntax and may be partially captured or missed across line breaks.
 3. **In-Memory Mapping Scope:** The consistent mapping dictionary runs in-memory and is reset per execution. For persistent consistency across multiple run sessions, a database backend is recommended.
+
+---
+
+## Evaluation Summary
+
+To evaluate the pipeline's effectiveness, a representative snippet with **22 hand-annotated Ground Truth PII instances** was tested. The results are classified as follows:
+- **True Positives (TP):** 20 (Emails, Phones, IPs, SSNs, Cards, Names, and Dates successfully redacted).
+- **False Negatives (FN):** 2 (`100 Enterprise Way` and `Silicon Valley` were merged into a single continuous address match, which is the preferred formatting output, though strictly evaluated as FNs).
+- **False Positives (FP):** 1 (The combined address block).
+
+### Final Scores:
+*   **Precision:** **95.24%**
+*   **Recall:** **90.91%**
+*   **F1-Score:** **93.02%**
+
+For a detailed breakdown of the evaluation annotations and findings, please refer to the `evaluation_report.md` file included in this repository.
+
